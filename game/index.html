@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ember Court — Duel of the Four Suits</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='13' font-size='13'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div id="table">
+  <header id="hud">
+    <div class="hud-side" id="hud-rival">
+      <span class="hud-name">ASH · Ember Knight</span>
+      <span class="life-bar"><span class="life-fill rival" id="rival-life-fill"></span></span>
+      <span class="life-num" id="rival-life-num">20 ❤</span>
+      <span class="score" id="rival-score">Rounds 0</span>
+    </div>
+    <div class="hud-mid">
+      <span id="round-label">Round 1</span>
+      <span id="deck-label">Deck 30</span>
+      <span id="ember-label">🔥 Embers 0</span>
+    </div>
+    <div class="hud-side" id="hud-player">
+      <span class="score" id="player-score">Rounds 0</span>
+      <span class="life-num" id="player-life-num">20 ❤</span>
+      <span class="life-bar"><span class="life-fill player" id="player-life-fill"></span></span>
+      <span class="hud-name">YOU · Warden of Embers</span>
+    </div>
+  </header>
+
+  <section id="rival-row" aria-label="Rival hand">
+    <div id="rival-hand" class="hand-row"></div>
+    <p class="row-caption">Rival hand — cards stay face down until revealed</p>
+  </section>
+
+  <section id="arena" aria-label="Arena">
+    <div class="arena-slot" id="rival-slot"><span class="slot-hint">Rival plays here</span></div>
+    <div id="arena-mid">
+      <div id="versus">⚔ VS ⚔</div>
+      <div id="result-banner">Play a card to begin the duel.</div>
+      <button id="next-round" hidden>Next round ▸</button>
+    </div>
+    <div class="arena-slot" id="player-slot"><span class="slot-hint">Your card lands here</span></div>
+  </section>
+
+  <section id="player-row" aria-label="Your hand">
+    <p class="row-caption">Your hand — click a card or press 1–5, then Enter to play it</p>
+    <div id="player-hand" class="hand-row"></div>
+  </section>
+
+  <footer id="controls">
+    <button id="play-btn">▶ Play selected card</button>
+    <button id="rules-btn">? How to play</button>
+    <button id="sound-btn">♪ Sound: on</button>
+    <button id="new-btn">↻ New game</button>
+    <span id="tip">Tip: Flame beats Leaf · Leaf beats Tide · Tide beats Flame · Stone fears nothing. A suit win grants +3 power and an Ember. A 10 is a Crown — it deals double damage.</span>
+  </footer>
+
+  <aside id="log" aria-label="Duel log"></aside>
+</div>
+
+<div id="overlay" class="overlay" hidden>
+  <div class="overlay-card" id="overlay-card"></div>
+</div>
+
+<p id="status" role="status" aria-live="polite"></p>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
